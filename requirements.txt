@@ -5,6 +5,7 @@ charset-normalizer==3.2.0
 configparser==6.0.0
 cryptography==41.0.1
 decorator==5.1.1
+GithubCacher==0.0.1
 idna==3.4
 pycparser==2.21
 requests==2.31.0
