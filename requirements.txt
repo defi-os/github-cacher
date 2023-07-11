@@ -3,7 +3,7 @@ certifi==2023.5.7
 cffi==1.15.1
 charset-normalizer==3.2.0
 configparser==6.0.0
-cryptography==41.0.1
+cryptography==41.0.2
 decorator==5.1.1
 GithubCacher==0.0.1
 idna==3.4
