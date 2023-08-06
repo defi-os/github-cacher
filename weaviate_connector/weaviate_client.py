@@ -16,34 +16,6 @@ class Weaviate:
         )
         self.__client = client
 
-    def search_issue(self, repo_id, issue_number):
-        data = (
-            self.__client.query.get("Issue", ["id"])
-            .with_where(
-                {
-                    "operator": "And",
-                    "operands": [
-                        {
-                            "path": ["repo_id"],
-                            "operator": "Equal",
-                            "valueInt": repo_id,
-                        },
-                        {
-                            "path": ["issue_number"],
-                            "operator": "Equal",
-                            "valueInt": issue_number,
-                        },
-                    ],
-                },
-            )
-            .with_limit(1)
-            .do()
-        )
-
-        if data["data"]["Get"]["Issue"] == []:
-            return False, -1
-        return True, data["data"]["Get"]["Issue"][0]["id"]
-
     def update_issue(self, issue_uid, issue_title, issue_description):
         self.__client.data_object.update(
             uuid=issue_uid,

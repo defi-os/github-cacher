@@ -26,8 +26,17 @@ class_obj = {
             "description": "Description of issue",
             "name": "description",
         },
-        {"dataType": ["int"], "description": "Repo of issue", "name": "repo_id"},
-        {"dataType": ["int"], "description": "issue_number"},
+        {"dataType": ["text"], "description": "HTML URL of issue", "name": "html_url"},
+        {
+            "dataType": ["text"],
+            "description": "Programming langauge related to issue",
+            "name": "langauge",
+        },
+        {
+            "dataType": ["text"],
+            "description": "Difficulty of issue",
+            "name": "difficulty",
+        },
     ],
     "vectorizer": "text2vec-openai",
 }
