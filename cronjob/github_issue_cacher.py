@@ -5,6 +5,7 @@ from openai_connector.connector import OpenAIConnector
 from indexed_repos import index_repos
 import hashlib
 import uuid
+import time
 
 config = configparser.ConfigParser()
 config.read("../config.ini")
@@ -19,6 +20,8 @@ weaviate_client = Weaviate(weaviate_cluster_url, weaviate_bearer_token, open_ai_
 openai_connector = OpenAIConnector(api_key=open_ai_api_key)
 for repo in index_repos:
     issues = github.get_issues_by_repo(repo)
+    if issues == []:
+        time.sleep(5)
     for issue in issues:
         issue_hash = hashlib.sha256(issue["html_url"].encode("utf-8")).hexdigest()
         issue_id = uuid.UUID(issue_hash[::2])
