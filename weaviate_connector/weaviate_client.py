@@ -23,6 +23,6 @@ class Weaviate:
             data_object={"title": issue_title, "description": issue_description},
         )
 
-    def create_issue(self, object):
-        uuid = self.__client.data_object.create(object, "Issue")
+    def create_issue(self, object, uid):
+        uuid = self.__client.data_object.create(object, "Issue", uuid=uid)
         return uuid
